@@ -1,6 +1,8 @@
 import React from "react";
 
 class SingleInput extends React.Component {
+  inputChangedHandler = (event) => event.target.value;
+
   render() {
     return (
       <label>
@@ -10,6 +12,7 @@ class SingleInput extends React.Component {
           name={this.props.name}
           placeholder={this.props.placeholder}
           value={this.props.value}
+          onChange={(event) => this.inputChangedHandler(event)}
         />
       </label>
     );
@@ -21,7 +24,7 @@ class UserInputField extends React.Component {
     return (
       <div className="User input">
         <h2> User Input field</h2>
-        <div class="formgroup">
+        <div className="formgroup">
           <SingleInput
             label="# Ether"
             name="initialEtherAmount"
@@ -41,7 +44,7 @@ class UserInputField extends React.Component {
             value={this.props.initialEtherPrice}
           />
         </div>
-        <div class="formgroup">
+        <div className="formgroup">
           <SingleInput
             label="# priceChange"
             name="priceChange"

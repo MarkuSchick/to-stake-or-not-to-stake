@@ -1,28 +1,34 @@
+// https://github.com/uber/react-vis/blob/premodern/showcase/misc/time-chart.js
 import React from "react";
-import { XYPlot, LineSeries } from "react-vis";
-
+import {
+  XYPlot,
+  XAxis,
+  YAxis,
+  HorizontalGridLines,
+  LineSeries,
+  VerticalGridLines,
+} from "react-vis";
 class Graph extends React.Component {
   render() {
-    const data = [
-      { x: 0, y: 8 },
-      { x: 1, y: 5 },
-      { x: 2, y: 4 },
-      { x: 3, y: 9 },
-      { x: 4, y: 1 },
-      { x: 5, y: 7 },
-      { x: 6, y: 6 },
-      { x: 7, y: 3 },
-      { x: 8, y: 2 },
-      { x: 9, y: 0 },
-    ];
     return (
       <div className="Graph">
         <h2> Graph output</h2>
-        <XYPlot height={300} width={300}>
-          <LineSeries data={data} />
+        <XYPlot xType="time" height={300} width={300}>
+          <HorizontalGridLines />
+          <VerticalGridLines />
+          <XAxis title="Year" />
+          <YAxis title="Profit" />
+          <LineSeries data={this.props.profitWithStaking} />
+          <LineSeries data={null} />
+          <LineSeries data={this.props.profitWithoutStaking} />
+          <YAxis />
         </XYPlot>
       </div>
     );
   }
 }
 export default Graph;
+
+/*
+
+*/
