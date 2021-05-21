@@ -6,8 +6,9 @@
 import React from 'react';
 //import Calculator from './components/Calculator';
 import CalculatorClasses from './components/CalculatorClasses';
+import '../node_modules/react-vis/dist/style.css';
 
-//import './App.css';
+import './App.css';
 
 export default function App () {
   return( 
