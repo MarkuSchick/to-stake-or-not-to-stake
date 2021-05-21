@@ -1,5 +1,6 @@
 {
   "name": "to-stake-or-not-to-stake",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
