@@ -14,23 +14,26 @@ class CalculatorClasses extends React.Component {
 
     // user input
     const userInputValues = {
-      initialAvgTaxRate: 0.35,
-      initialEtherAmount: 1,
+      initialAvgTaxRate: 0.15,
+      initialEtherAmount: 32,
       initialEtherPrice: 1000,
-      stakingReturn: 0.1,
-      priceChange: 1,
+      stakingReturn: 0.05,
+      priceChange: 0.3,
     };
 
+    // calculate profits from this
     const profit = calculateProfit(defaulValues, userInputValues);
-
-    const profitWithOutStaking = profit.withoutStaking.map((profit, index) => {
-      return { x: index + 1, y: profit * index };
+    //debugger;
+    const profitWithoutStaking = profit.map((profit, index) => {
+      return { x: index + 1, y: profit.withoutStaking };
+    });
+    const profitWithStaking = profit.map((profit, index) => {
+      return { x: index + 1, y: profit.withStaking };
     });
 
-    const profitWithStaking = profit.withStaking.map((profit, index) => {
-      return { x: index + 1, y: profit };
-    });
-    debugger;
+    //debugger;
+
+    // html representation
     return (
       <div className="calculator">
         <h1> Staking Calculator</h1>
@@ -42,7 +45,7 @@ class CalculatorClasses extends React.Component {
           priceChange={userInputValues.priceChange}
         />
         <Graph
-          profitWithOutStaking={profitWithOutStaking}
+          profitWithoutStaking={profitWithoutStaking}
           profitWithStaking={profitWithStaking}
         />
         <Table profit={profit} />
@@ -51,37 +54,3 @@ class CalculatorClasses extends React.Component {
   }
 }
 export default CalculatorClasses;
-
-/*
-      const calculatePrice = (initialPrice, growthRate, numPeriods) => {
-        let cumulativeGrowth = [];
-        for (let i = 0; i < numPeriods; i++) {
-          cumulativeGrowth.push(Math.pow(1 + growthRate, i));
-        }
-        const prices = cumulativeGrowth.map((x) => x * initialPrice);
-        return prices;
-      };
-
-
-    const profit = {
-      profitWStaking: {
-        totalProfit: [
-          1, 2, 3,
-        ] stakingGrossIncome + totalSellingProceeds - totalStakingTaxesPaid - totalSellingTaxes ,
-        totalStakingGrossIncome: [1, 2, 3],
-        totalStakingTaxesPaid: [1, 1, 1],
-        totalSellingProceeds: [1, 2, 3],
-        totalSellingTaxes: [1, 2, 3],
-      },
-      profitWOStaking: {
-        totalProfit: [
-          1, 2, 3,
-        ] stakingGrossIncome + totalSellingProceeds - totalStakingTaxesPaid - totalSellingTaxes,
-        totalStakingGrossIncome: [1, 2, 3],
-        totalStakingTaxesPaid: [1, 1, 1],
-        totalSellingProceeds: [1, 2, 3],
-        totalSellingTaxes: [1, 2, 3],
-      },
-    };
-    
-    */

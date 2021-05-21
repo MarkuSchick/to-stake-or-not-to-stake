@@ -1,61 +1,39 @@
 import React from "react";
 
+const formatNumber = (num) => {
+  return num.toLocaleString(navigator.language, {
+    minimumFractionDigits: 0,
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  });
+};
 class Table extends React.Component {
   render() {
     return (
       <div className="Table">
         <h2> Table</h2>
-        <h2>
-          profit with staking is
-          {this.props.profit.withStaking.map((x) => (
-            <div key={x}> {x} </div>
-          ))}
-        </h2>
-        <h2>
-          profit without staking is
-          {this.props.profit.withoutStaking.map((x) => (
-            <div key={x}> {x} </div>
-          ))}
-        </h2>
-        <h2>
-          stakingIncome is
-          {this.props.profit.stakingIncome.map((x) => (
-            <div key={x}> {x} </div>
-          ))}
-        </h2>
-        <h2>
-          stakingTaxes is
-          {this.props.profit.stakingTaxes.map((x) => (
-            <div key={x}> {x} </div>
-          ))}
-        </h2>
-        <h2>
-          sellingProceeds is
-          {this.props.profit.sellingProceeds.map((x) => (
-            <div key={x}> {x} </div>
-          ))}
-        </h2>
-        <h2>
-          sellingTaxes is
-          {this.props.profit.sellingTaxes.map((x) => (
-            <div key={x}> {x} </div>
-          ))}
-        </h2>
 
         <table>
           <tbody>
             <tr>
-              <th>First header</th>
-              <th>Second header</th>
+              <th>withStaking</th>
+              <th>withoutStaking</th>
+              <th>stakingIncome</th>
+              <th>stakingTaxes</th>
+              <th>sellingProceeds</th>
+              <th>sellingTaxes</th>
             </tr>
-            <tr>
-              <td>1,1 cell</td>
-              <td>1,2 Cell</td>
-            </tr>
-            <tr>
-              <td>2,1 cell</td>
-              <td>2,2 Cell</td>
-            </tr>
+
+            {this.props.profit.map((profit) => (
+              <tr>
+                <td>{formatNumber(profit.withStaking)}</td>
+                <td> {formatNumber(profit.withoutStaking)}</td>
+                <td> {formatNumber(profit.stakingIncome)}</td>
+                <td> {formatNumber(profit.stakingTaxes)}</td>
+                <td> {formatNumber(profit.sellingProceeds)}</td>
+                <td> {formatNumber(profit.sellingTaxes)}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
