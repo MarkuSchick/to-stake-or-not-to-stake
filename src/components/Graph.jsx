@@ -1,5 +1,7 @@
 // https://uber.github.io/react-vis/examples/showcases/plots
+// https://uber.github.io/react-vis/
 // https://codepen.io/jckr/pen/LLWQpo
+// https://github.com/uber/react-vis/blob/master/docs/scales-and-data.md#scale-properties
 import React from "react";
 import {
   DiscreteColorLegend,
@@ -10,13 +12,35 @@ import {
   LineSeries,
   VerticalGridLines,
 } from "react-vis";
-
+const logScale = (props) => {
+  return props.isToggleOn ? "log" : "linear";
+};
 class Graph extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isToggleOn: true };
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({ isToggleOn: !this.state.isToggleOn });
+  }
   render() {
     //debugger;
     return (
       <div>
         <h2 className="graph"> Graph output</h2>
+        <label>
+          Logarithmic graph
+          <input
+            type="checkbox"
+            defaultChecked={this.state.isToggleOn}
+            ref="complete"
+            onChange={this.handleClick}
+          />
+        </label>
         <DiscreteColorLegend
           items={["Profit w/ staking", "Profit w/o staking"]}
           orientation="horizontal"
@@ -25,6 +49,7 @@ class Graph extends React.Component {
           height={400}
           width={800}
           margin={{ left: 100, right: 10, top: 10, bottom: 40 }}
+          yType={logScale(this.state)}
         >
           <HorizontalGridLines />
           <VerticalGridLines />

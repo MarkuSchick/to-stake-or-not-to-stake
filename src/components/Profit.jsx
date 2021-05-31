@@ -25,6 +25,7 @@ const calculateProfit = (defaulValues, userInputValues) => {
         defaulValues.yearlyTaxDeduction,
       0
     );
+    debugger;
     capGain =
       newPrice * userInputValues.initialEtherAmount -
       userInputValues.initialEtherAmount * userInputValues.initialEtherPrice;

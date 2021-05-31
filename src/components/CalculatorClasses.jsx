@@ -4,25 +4,42 @@ import Graph from "./Graph";
 import Table from "./Table";
 import calculateProfit from "./Profit";
 
-class CalculatorClasses extends React.Component {
-  render() {
-    // default values
-    const defaulValues = {
-      maxYears: 11,
-      yearlyTaxDeduction: 256,
-    };
+// default values
+const defaulValues = {
+  maxYears: 11,
+  yearlyTaxDeduction: 256,
+};
 
-    // user input
+class CalculatorClasses extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      initialAvgTaxRate: 0.15,
+      initialEtherAmount: 32,
+      initialEtherPrice: 3000,
+      stakingReturn: 0.1,
+      priceChange: 0.1,
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    debugger;
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  render() {
+    /* user input
     const userInputValues = {
       initialAvgTaxRate: 0.15,
       initialEtherAmount: 32,
       initialEtherPrice: 1000,
       stakingReturn: 0.05,
       priceChange: 0.3,
-    };
+    };*/
 
     // calculate profits from this
-    const profit = calculateProfit(defaulValues, userInputValues);
+    const profit = calculateProfit(defaulValues, this.state);
     //debugger;
     const profitWithoutStaking = profit.map((profit, index) => {
       return { x: index + 1, y: profit.withoutStaking };
@@ -38,11 +55,12 @@ class CalculatorClasses extends React.Component {
       <div className="calculator">
         <h1> Staking Calculator</h1>
         <UserInputField
-          initialAvgTaxRate={userInputValues.initialAvgTaxRate}
-          initialEtherAmount={userInputValues.initialEtherAmount}
-          initialEtherPrice={userInputValues.initialEtherPrice}
-          stakingReturn={userInputValues.stakingReturn}
-          priceChange={userInputValues.priceChange}
+          initialAvgTaxRate={this.state.initialAvgTaxRate}
+          initialEtherAmount={this.state.initialEtherAmount}
+          initialEtherPrice={this.state.initialEtherPrice}
+          stakingReturn={this.state.stakingReturn}
+          priceChange={this.state.priceChange}
+          handleChange={this.handleChange}
         />
         <Graph
           profitWithoutStaking={profitWithoutStaking}
