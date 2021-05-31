@@ -4,8 +4,7 @@
 // https://reactjs.org/docs/hello-world.html
 // https://engaging-data.com/fire-calculator/
 import React from 'react';
-//import Calculator from './components/Calculator';
-import CalculatorClasses from './components/CalculatorClasses';
+import Calculator from './components/Calculator';
 import '../node_modules/react-vis/dist/style.css';
 
 import './App.css';
@@ -13,7 +12,7 @@ import './App.css';
 export default function App () {
   return( 
     <div className="App">
-      <CalculatorClasses />  
+      <Calculator />  
     </div>
   );
 }

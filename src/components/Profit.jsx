@@ -1,5 +1,6 @@
 // calculate Profit
-const calculateProfit = (defaulValues, userInputValues) => {
+
+export default function calculateProfit(defaulValues, userInputValues) {
   const sumArray = (accumulator, currentValue) => accumulator + currentValue;
 
   /*********  initialize empty containers ************/
@@ -25,7 +26,7 @@ const calculateProfit = (defaulValues, userInputValues) => {
         defaulValues.yearlyTaxDeduction,
       0
     );
-    debugger;
+    //debugger;
     capGain =
       newPrice * userInputValues.initialEtherAmount -
       userInputValues.initialEtherAmount * userInputValues.initialEtherPrice;
@@ -62,6 +63,4 @@ const calculateProfit = (defaulValues, userInputValues) => {
     stakingTaxes: cumStakingTaxesPaid,
     sellingProceeds: sellingProceeds,
     sellingTaxes: sellingTaxes,*/
-};
-
-export default calculateProfit;
+}
