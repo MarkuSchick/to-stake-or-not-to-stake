@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import UserInputField from "./UserInputField";
-import Graph from "./Graph";
-import Table from "./Table";
-import calculateProfit from "./Profit";
+import UserInputField from "../components/UserInputField";
+import Graph from "../components/Graph";
+import Table from "../components/Table";
+import calculateProfit from "../components/Profit";
 
 // default values
 const defaulValues = {

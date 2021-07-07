@@ -3,16 +3,28 @@
 // https://reactjs.org/tutorial/tutorial.html
 // https://reactjs.org/docs/hello-world.html
 // https://engaging-data.com/fire-calculator/
-import React from 'react';
-import Calculator from './components/Calculator';
-import '../node_modules/react-vis/dist/style.css';
+import React from "react";
+import Calculator from "./pages/Calculator";
+import Motivation from "./pages/Motivation";
+import Header from "./components/Header";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "../node_modules/react-vis/dist/style.css";
 
-import './App.css';
+import "./App.css";
 
-export default function App () {
-  return( 
+export default function App() {
+  return (
     <div className="App">
-      <Calculator />  
+      <Router>
+        <Route path="/calculator" exact>
+          <Header />
+          <Calculator />
+        </Route>
+        <Route path="/motivation" exact>
+          <Header />
+          <Motivation />
+        </Route>
+      </Router>
     </div>
   );
 }
