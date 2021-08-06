@@ -1,7 +1,8 @@
 import { React } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+import "./Header.scss";
 
-export default function Header({}) {
+export default function Header() {
   const { pathname } = useLocation();
   const history = useHistory();
 
@@ -12,9 +13,9 @@ export default function Header({}) {
   return (
     <div id="header">
       <h2
-        className={`link ${pathname === "/calculator" ? "selected" : ""}`}
+        className={`link ${pathname === "/" ? "selected" : ""}`}
         onClick={() => {
-          goTo("/calculator");
+          goTo("/");
         }}
       >
         Calculator

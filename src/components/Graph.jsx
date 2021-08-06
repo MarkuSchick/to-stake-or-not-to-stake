@@ -35,7 +35,7 @@ export default function Graph(props) {
   const logScale = () => {
     return state.isToggleOn ? "log" : "linear";
   };
-  //debugger;
+  debugger;
   return (
     <div>
       <h2 className="graph"> Graph output</h2>

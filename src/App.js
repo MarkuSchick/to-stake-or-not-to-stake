@@ -8,7 +8,6 @@ import Calculator from "./pages/Calculator";
 import Motivation from "./pages/Motivation";
 import Header from "./components/Header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "../node_modules/react-vis/dist/style.css";
 
 import "./App.css";
 
@@ -16,7 +15,7 @@ export default function App() {
   return (
     <div className="App">
       <Router>
-        <Route path="/calculator" exact>
+        <Route path="/" exact>
           <Header />
           <Calculator />
         </Route>
