@@ -12,13 +12,14 @@ import {
   LineSeries,
   VerticalGridLines,
 } from "react-vis";
+import "./Graph.css";
 
 export default function Graph(props) {
   const [state, setState] = useState({
     isToggleOn: false,
   });
 
-  const handleToggle = (event) => {
+  const handleToggle = () => {
     setState(({ isToggleOn, ...prevState }) => ({
       ...prevState,
       isToggleOn: !isToggleOn,
