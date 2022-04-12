@@ -26,7 +26,7 @@ export default function UserInputField(props) {
 
   return (
     <div className="User input">
-      <h2> User Input field</h2>
+      <h2> Input some values</h2>
       <div className="formgroup">
         <SingleInput
           label="Units of Ether owned"

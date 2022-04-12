@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import UserInputField from "../components/UserInputField";
 import Graph from "../components/Graph";
-import Table from "../components/Table";
 import calculateProfit from "../components/Profit";
 
 // default values
@@ -39,7 +38,6 @@ export default function CalculatorClasses(props) {
         handleChange={handleChange}
       />
       <Graph profit={profit} />
-      <Table profit={profit} />
     </div>
   );
 }

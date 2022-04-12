@@ -1,5 +1,11 @@
-2 add the below CSS .react-vis-magic-css-import-rule {
+.react-vis-magic-css-import-rule {
   display: inherit;
+}
+
+.rv-xy-plot {
+  width: 80%;
+  margin-left: 30%;
+  margin-right: 10%;
 }
 
 .rv-treemap {

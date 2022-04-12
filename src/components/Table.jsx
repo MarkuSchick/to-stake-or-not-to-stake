@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Table.css";
 const formatNumber = (num) => {
   return num.toLocaleString(navigator.language, {
     minimumFractionDigits: 0,
@@ -11,20 +11,20 @@ class Table extends React.Component {
   render() {
     return (
       <div className="Table">
-        <h2> Table</h2>
-
-        <table>
+        <table id="table1">
           <tbody>
             <tr>
-              <th>Profit with Staking </th>
+              <th> </th>
+              <th> Profit with Staking </th>
               <th>+ Income from staking</th>
               <th>- Taxes on Staking income</th>
               <th>- Taxes on Capital gains</th>
               <th>= Profit without Staking</th>
             </tr>
 
-            {this.props.profit.map((profit) => (
+            {this.props.profit.map((profit, year) => (
               <tr>
+                <td> Year {year + 1} </td>
                 <td>{formatNumber(profit.withStaking)} </td>
                 <td> {formatNumber(profit.stakingIncome)}</td>
                 <td> {formatNumber(profit.stakingTaxes)}</td>

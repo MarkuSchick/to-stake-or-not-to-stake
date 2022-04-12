@@ -39,7 +39,7 @@ export default function Graph(props) {
   debugger;
   return (
     <div>
-      <h2 className="graph"> Graph output</h2>
+      <h2 className="graph"> </h2>
       <label>
         Logarithmic graph
         <input
@@ -64,6 +64,7 @@ export default function Graph(props) {
         <YAxis title="Profit" />
         <LineSeries data={profitWithStaking} />
         <LineSeries data={profitWithoutStaking} />
+
         <YAxis />
       </XYPlot>
     </div>
